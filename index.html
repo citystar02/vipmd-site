@@ -80,6 +80,10 @@
   .logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;color:var(--navy);text-decoration:none;letter-spacing:-0.02em}
   .logo span{color:var(--coral)}
   .logo small{display:block;font-family:'Fira Sans',sans-serif;font-weight:500;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--amaranth)}
+  .links{display:flex;gap:4px;flex-wrap:wrap;justify-content:center}
+  .links a{color:var(--navy);text-decoration:none;font-weight:600;font-size:17px;padding:8px 14px;border-radius:999px;white-space:nowrap}
+  .links a:hover{background:var(--gold-whisper)}
+  .links a[aria-current="page"]{border-bottom:3px solid var(--coral);border-radius:0;padding-bottom:5px}
   .nav-right{display:flex;align-items:center;gap:14px}
   .lang{
     border:2px solid var(--navy);background:#fff;color:var(--navy);
@@ -183,6 +187,10 @@
     .promises .wrap,.steps,.tests{grid-template-columns:1fr}
     .whole .duo{grid-template-columns:1fr}
     .irow{grid-template-columns:1fr;gap:6px}
+    header{position:static}
+    .nav{flex-wrap:wrap}
+    .links{order:3;width:100%;justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;margin-top:-4px;padding-bottom:4px}
+    .links a{font-size:16px;padding:6px 12px}
     .nav .call-pill{display:none}
     section{padding:54px 0}
     .hero{padding:52px 0 44px}
@@ -209,7 +217,13 @@
 
 <header>
   <div class="wrap nav">
-    <a class="logo" href="#">Vip<span>MD</span><small data-i18n="cardio">Cardiology &amp; Primary Care</small></a>
+    <a class="logo" href="/">Vip<span>MD</span><small data-i18n="cardio">Cardiology &amp; Primary Care</small></a>
+    <nav class="links" aria-label="Main">
+      <a href="/" aria-current="page" data-i18n="nav-home">Home</a>
+      <a href="/getting-seen/" data-i18n="nav-seen">Getting seen</a>
+      <a href="/our-team/" data-i18n="nav-team">Our team</a>
+      <a href="/for-providers/" data-i18n="nav-prov">For providers</a>
+    </nav>
     <div class="nav-right">
       <button class="lang" id="langBtn" aria-label="Cambiar a español">Español</button>
       <a class="call-pill" href="tel:6613270807">
@@ -303,7 +317,7 @@
   <div class="wrap">
     <div class="bar">
       <p><b data-i18n="pr-b">Referring providers:</b> <span data-i18n="pr-s">your patient seen this week, urgent findings called the same day, written reports within five business days — and your patient comes back to you.</span></p>
-      <a class="btn-outline" href="#" data-i18n="pr-cta">Refer a patient</a>
+      <a class="btn-outline" href="/for-providers/" data-i18n="pr-cta">Refer a patient</a>
     </div>
   </div>
 </section>
@@ -330,6 +344,7 @@
 const ES = {
   open:"Estamos abiertos hoy", slots:"Citas para pacientes nuevos esta semana",
   cardio:"Cardiología y Medicina General",
+  "nav-home":"Inicio", "nav-seen":"Cómo ser atendido", "nav-team":"Nuestro equipo", "nav-prov":"Para médicos",
   h1:"Respuestas para su corazón, <em>sin la espera.</em>",
   sub:"La mayoría de los pacientes son atendidos en la misma semana. Todas las pruebas del corazón en nuestra oficina. Atención en español e inglés.",
   plabel:"<b>Llámenos usted mismo</b> — una persona contesta, y le encontramos una cita esta semana.",
